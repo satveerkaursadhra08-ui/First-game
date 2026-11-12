@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10162f">
+  <title>Brain Puzzle</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-icon">🧠</div>
+        <div>
+          <h2>Brain<span>Puzzle</span></h2>
+          <small>Train your mind</small>
+        </div>
+      </div>
+
+      <button id="soundBtn" class="round-btn"
+              aria-label="Toggle sound">🔊</button>
+    </header>
+
+    <!-- HOME -->
+    <section id="home" class="screen active">
+      <div class="home-content">
+
+        <div class="hero-art">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="hero-brain">🧠</div>
+          <span class="float-icon star">⭐</span>
+          <span class="float-icon bulb">💡</span>
+          <span class="float-icon puzzle">🧩</span>
+        </div>
+
+        <div class="eyebrow">WELCOME TO BRAIN PUZZLE</div>
+        <h1>Challenge<br><span>Your Mind</span></h1>
+        <p class="subtitle">
+          Solve puzzles, earn coins and become a brain master!
+        </p>
+
+        <div class="home-stats">
+          <div class="stat-card">
+            <span>🏆</span>
+            <strong id="homeBest">0</strong>
+            <small>Best score</small>
+          </div>
+          <div class="stat-card">
+            <span>🪙</span>
+            <strong id="homeCoins">0</strong>
+            <small>Total coins</small>
+          </div>
+          <div class="stat-card">
+            <span>🧩</span>
+            <strong id="homeLevel">1</strong>
+            <small>Level</small>
+          </div>
+        </div>
+
+        <button id="playBtn" class="primary-btn">
+          <span>▶</span> Play Game
+        </button>
+
+        <button id="bonusBtn" class="bonus-btn">
+          🎁 Claim Daily Bonus
+        </button>
+
+        <p id="bonusMessage" class="bonus-message"></p>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="screen">
+
+      <div class="game-top">
+        <button id="homeBtn" class="round-btn">⌂</button>
+
+        <div class="level-pill">
+          LEVEL <span id="level">1</span>
+        </div>
+
+        <div class="lives-pill">
+          ❤️ <span id="lives">3</span>
+        </div>
+      </div>
+
+      <div class="progress-info">
+        <span>YOUR PROGRESS</span>
+        <span id="levelCount">1 / 20</span>
+      </div>
+
+      <div class="progress-track">
+        <div id="progress" class="progress-fill"></div>
+      </div>
+
+      <div class="game-stats">
+        <div>⭐ <span>Score</span> <b id="score">0</b></div>
+        <div>🪙 <span>Coins</span> <b id="coins">0</b></div>
+      </div>
+
+      <div class="puzzle-card">
+        <div class="puzzle-top">
+          <span class="puzzle-badge">🧩 BRAIN CHALLENGE</span>
+          <span class="question-number" id="questionNumber">01</span>
+        </div>
+
+        <div class="puzzle-emoji">🤔</div>
+        <h2 id="question">Loading puzzle...</h2>
+        <p id="feedback" class="feedback"></p>
+      </div>
+
+      <div id="answers" class="answers"></div>
+
+      <div class="game-actions">
+        <button id="hintBtn" class="hint-btn">
+          💡 Hint <span>−5 🪙</span>
+        </button>
+        <button id="nextBtn" class="primary-btn" disabled>
+          Next ➜
+        </button>
+      </div>
+
+      <p class="game-note">✨ Think carefully before you answer!</p>
+    </section>
+
+    <!-- COMPLETE -->
+    <section id="complete" class="screen">
+      <div class="result-content">
+        <div class="result-emoji">🏆</div>
+        <div class="eyebrow">AMAZING WORK!</div>
+        <h1>Brain Master!</h1>
+        <p class="subtitle">
+          You completed all the puzzles!
+        </p>
+
+        <div class="result-box">
+          <div>
+            <span>⭐</span>
+            <strong id="finalScore">0</strong>
+            <small>Final score</small>
+          </div>
+          <div>
+            <span>🪙</span>
+            <strong id="finalCoins">0</strong>
+            <small>Coins earned</small>
+          </div>
+        </div>
+
+        <button id="againBtn" class="primary-btn">
+          🔄 Play Again
+        </button>
+        <button class="text-btn home-link">⌂ Back to Home</button>
+      </div>
+    </section>
+
+    <!-- GAME OVER -->
+    <section id="over" class="screen">
+      <div class="result-content">
+        <div class="result-emoji">💔</div>
+        <div class="eyebrow">DON'T GIVE UP!</div>
+        <h1>Game Over</h1>
+        <p class="subtitle">
+          Every mistake is a chance to learn.
+        </p>
+
+        <div class="result-box">
+          <div>
+            <span>⭐</span>
+            <strong id="overScore">0</strong>
+            <small>Your score</small>
+          </div>
+          <div>
+            <span>🪙</span>
+            <strong id="overCoins">0</strong>
+            <small>Your coins</small>
+          </div>
+        </div>
+
+        <button id="retryBtn" class="primary-btn">
+          🔄 Try Again
+        </button>
+        <button class="text-btn home-link">⌂ Back to Home</button>
+      </div>
+    </section>
+
+    <!-- BONUS POPUP -->
+    <div id="bonusModal" class="modal">
+      <div class="modal-card">
+        <div class="modal-emoji">🎁</div>
+        <h2>Daily Reward!</h2>
+        <p>You received 25 bonus coins!</p>
+        <div class="bonus-amount">+25 🪙</div>
+        <button id="closeBonus" class="primary-btn">Awesome!</button>
+      </div>
+    </div>
+
+  </main>
+
+  <script src="game.js"></script>
+</body>
+                 </html>
